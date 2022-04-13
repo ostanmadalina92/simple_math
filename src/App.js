@@ -27,48 +27,28 @@ function App() {
       return Number(firstInput) / Number(secondInput);
     }
     setResult([
-      `${firstInput} + ${secondInput} = ${add(
-        firstInput, 
-        secondInput
-        )} `,
-      `${firstInput} - ${secondInput} = ${substract(
-        firstInput,
-        secondInput
-      )} `,
-      `${firstInput} * ${secondInput} = ${multiply(
-        firstInput,
-        secondInput
-      )} `,
-      `${firstInput} / ${secondInput} = ${divide(
-        firstInput,
-        secondInput
-      )} `,
+      `${firstInput} + ${secondInput} = ${add(firstInput, secondInput)} `,
+      `${firstInput} - ${secondInput} = ${substract(firstInput, secondInput)} `,
+      `${firstInput} * ${secondInput} = ${multiply(firstInput, secondInput)} `,
+      `${firstInput} / ${secondInput} = ${divide(firstInput, secondInput)} `,
     ]);
   };
 
   const handleNegative = (e) => {
     if (e.target.value.match(/^\d+$/) === null) {
-        e.target.value = ""
+      e.target.value = "";
     }
-  }
+  };
 
   return (
     <div id="container">
       <div className="items">
         <p>What is the first number? {firstInput}</p>
-        <input
-          min="0"
-          onKeyDown={handleNegative}
-          onChange={firstHandleChange}
-        ></input>
+        <input onKeyDown={handleNegative} onChange={firstHandleChange}></input>
       </div>
       <div className="items">
         <p>What is the second number? {secondInput}</p>
-        <input
-          min="0"
-          onKeyDown={handleNegative}
-          onChange={secondHandleChange}
-        ></input>
+        <input onKeyDown={handleNegative} onChange={secondHandleChange}></input>
       </div>
       <div className="items">
         <button onClick={simpleMath}>Do the math!</button>
