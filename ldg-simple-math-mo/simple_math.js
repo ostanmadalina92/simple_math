@@ -1,22 +1,16 @@
-function simpleMath  (firstInput, secondInput) {
-  function add() {
+const simpleMath = {
+  add: function add(firstInput, secondInput) {
     return Number(firstInput) + Number(secondInput);
-  }
-  function substract() {
+  },
+  substract: function substract(firstInput, secondInput) {
     return Number(firstInput) - Number(secondInput);
-  }
-  function multiply() {
+  },
+  multiply: function multiply(firstInput, secondInput) {
     return Number(firstInput) * Number(secondInput);
-  }
-  function divide() {
+  },
+  divide: function divide(firstInput, secondInput) {
     return Number(firstInput) / Number(secondInput);
-  }
-  return([
-    `${firstInput} + ${secondInput} = ${add(firstInput, secondInput)} `,
-    `${firstInput} - ${secondInput} = ${substract(firstInput, secondInput)} `,
-    `${firstInput} * ${secondInput} = ${multiply(firstInput, secondInput)} `,
-    `${firstInput} / ${secondInput} = ${divide(firstInput, secondInput)} `,
-  ]);
+  },
 };
 
 module.exports = simpleMath;
