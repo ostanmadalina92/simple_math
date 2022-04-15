@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import simpleMath from "simple_math_ij";
 
 function App() {
   const [firstInput, setFirstInput] = useState();
@@ -13,24 +14,24 @@ function App() {
     setSecondInput(e.target.value);
   };
 
-  const simpleMath = () => {
-    function add() {
-      return Number(firstInput) + Number(secondInput);
-    }
-    function substract() {
-      return Number(firstInput) - Number(secondInput);
-    }
-    function multiply() {
-      return Number(firstInput) * Number(secondInput);
-    }
-    function divide() {
-      return Number(firstInput) / Number(secondInput);
-    }
+  const handleClick = () => {
     setResult([
-      `${firstInput} + ${secondInput} = ${add(firstInput, secondInput)} `,
-      `${firstInput} - ${secondInput} = ${substract(firstInput, secondInput)} `,
-      `${firstInput} * ${secondInput} = ${multiply(firstInput, secondInput)} `,
-      `${firstInput} / ${secondInput} = ${divide(firstInput, secondInput)} `,
+      `${firstInput} + ${secondInput} = ${simpleMath.add(
+        firstInput,
+        secondInput
+      )} `,
+      `${firstInput} - ${secondInput} = ${simpleMath.substract(
+        firstInput,
+        secondInput
+      )} `,
+      `${firstInput} * ${secondInput} = ${simpleMath.multiply(
+        firstInput,
+        secondInput
+      )} `,
+      `${firstInput} / ${secondInput} = ${simpleMath.divide(
+        firstInput,
+        secondInput
+      )} `,
     ]);
   };
 
@@ -51,7 +52,7 @@ function App() {
         <input onKeyDown={handleNegative} onChange={secondHandleChange}></input>
       </div>
       <div className="items">
-        <button onClick={simpleMath}>Do the math!</button>
+        <button onClick={handleClick}>Do the math!</button>
       </div>
       <div id="result" className="items">
         Result:
